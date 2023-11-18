@@ -46,14 +46,13 @@ function* login(action: { payload: { email: string; password: string } }) {
 			action.payload.email,
 			action.payload.password
 		);
-		const { token, refreshToken } = authResponse.data;
+		const { accessToken } = authResponse.data;
 
 		setCredentials({
-			access_token: token,
-			refresh_token: refreshToken,
-			user: jwtDecode(token),
+			access_token: accessToken,
+			refresh_token: "refreshToken",
 		});
-		yield put(loginUserSuccess(jwtDecode(token)));
+		yield put(loginUserSuccess(jwtDecode(accessToken)));
 	} catch (err) {
 		const message = errorHandler(err);
 		yield put(loginUserFailed(message));

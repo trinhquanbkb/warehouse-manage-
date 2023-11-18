@@ -9,9 +9,10 @@ import { getLoggedInUser } from "./utils/authUtils";
 import { getAccessToken } from "./utils/getAccessToken";
 import { getRefreshToken } from "./utils/getRefreshToken";
 import jwtDecode from "jwt-decode";
+import config from "./config";
 
 // Cai dat baseURL mac dinh cho cac request su dung axios
-axios.defaults.baseURL = "https://api.dev.dp-cargo.com";
+axios.defaults.baseURL = config.API_URL;
 // axios.defaults.headers = { Authorization: `Bearer ${getAccessToken()}` };
 
 // xu ly response tra ve, neu response code = 401, trang thai chua dang nhap, thi thuc hien refresh token

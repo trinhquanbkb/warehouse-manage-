@@ -2,6 +2,7 @@ import { BaseQueryFn } from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 import { createApi } from "@reduxjs/toolkit/dist/query/react";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import { getAccessToken } from "../utils/getAccessToken";
+import config from "../config";
 
 export interface List<D> {
 	data: {
@@ -42,22 +43,12 @@ export const axiosBaseQuery =
 	};
 
 const baseQuery = axiosBaseQuery({
-	baseUrl: "https://api.dev.dp-cargo.com",
+	baseUrl: config.API_URL,
 });
 
 export const api = createApi({
 	baseQuery: baseQuery,
 	reducerPath: "api",
-	tagTypes: [
-		"Users",
-		"Employee",
-		"Store",
-		"Config",
-		"Criteria",
-		"DefaultCriteria",
-		"Feedback",
-		"Report",
-		"Logs",
-	],
+	tagTypes: [],
 	endpoints: () => ({}),
 });

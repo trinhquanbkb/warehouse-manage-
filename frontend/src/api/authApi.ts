@@ -2,7 +2,7 @@ import axios from "axios";
 import { getAccessToken } from "../utils/getAccessToken";
 
 export const LoginRequest = async (username: string, password: string) => {
-	const response = await axios.post("api/auth/login", {
+	const response = await axios.post("auth/sign-in", {
 		email: username,
 		password,
 	});
