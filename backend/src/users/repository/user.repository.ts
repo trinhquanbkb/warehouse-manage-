@@ -25,11 +25,13 @@ export class UsersRepository {
     return await this.userModel.findByIdAndUpdate(id, updateDto);
   }
 
-  async findAll(filter?: FilterQuery<any>): Promise<UserDocument[]> {
-    return this.userModel.find(filter);
+  async findAll(filter: FilterQuery<any>, skip: number, limit: number): Promise<UserDocument[]> {
+    return this.userModel.find(filter).skip(skip).limit(limit).exec();
   }
-
   async delete(_id: string): Promise<UserDocument> {
     return await this.userModel.findByIdAndDelete(_id);
+  }
+  async countAll(filter: FilterQuery<any>): Promise<number> {
+    return this.userModel.countDocuments(filter).exec();
   }
 }

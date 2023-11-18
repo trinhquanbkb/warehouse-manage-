@@ -14,21 +14,44 @@ export class User {
     required: true,
     type: String,
   })
+  email: string;
+
+  @Prop({
+    required: true,
+    type: String,
+  })
   username: string;
+
+  @Prop({
+    required: true,
+    type: Number,
+  })
+  phone: number;
 
   @Prop({
     required: false,
     type: String,
-    default: hashSync('12345678', configs.saltOrRound),
   })
-  password?: string;
+  parent_id: string;
+
+  @Prop({
+    required: false,
+    type: String,
+    default: hashSync('123456', configs.saltOrRound),
+  })
+  password: string;
   
   @Prop({
     required: false,
     type: Array,
-    default: ['ADMIN'],
   })
-  role: Array<string>;
+  role_id?: Array<String>;
+
+  @Prop({
+    required: false,
+    type: String,
+  })
+  warehouse_id?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

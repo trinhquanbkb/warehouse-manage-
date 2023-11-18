@@ -16,10 +16,10 @@ export class SignInValidation implements PipeTransform<any> {
   }
 
   async validateLogIn(value: any) {
-    const username = value.username;
+    const email = value.email;
     const password = value.password;
 
-    const user = await this.usersService.findOne({ username });
+    const user = await this.usersService.findOne({ email });
 
     if (!user) {
       return { id: null };

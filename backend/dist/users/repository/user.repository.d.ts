@@ -8,6 +8,12 @@ export declare class UsersRepository {
     findOne(filter: FilterQuery<any>): Promise<UserDocument | null>;
     create(createDto: CreateUserDto): Promise<UserDocument>;
     update(id: string, updateDto: Partial<UpdateUserDto>): Promise<UserDocument>;
+<<<<<<< Updated upstream
+    findAll(filter: FilterQuery<any>, skip: number, limit: number): Promise<UserDocument[]>;
+    delete(_id: string): Promise<UserDocument>;
+    countAll(filter: FilterQuery<any>): Promise<number>;
+=======
     findAll(filter?: FilterQuery<any>): Promise<UserDocument[]>;
     delete(_id: string): Promise<UserDocument>;
+>>>>>>> Stashed changes
 }

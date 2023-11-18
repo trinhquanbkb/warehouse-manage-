@@ -23,7 +23,28 @@ __decorate([
 ], SignUpDto.prototype, "password", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
+<<<<<<< Updated upstream
+    __metadata("design:type", String)
+], SignUpDto.prototype, "email", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Number)
+], SignUpDto.prototype, "phone", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Array)
+], SignUpDto.prototype, "role_id", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], SignUpDto.prototype, "parent_id", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], SignUpDto.prototype, "warehouse_id", void 0);
+=======
     __metadata("design:type", Array)
 ], SignUpDto.prototype, "role", void 0);
+>>>>>>> Stashed changes
 exports.SignUpDto = SignUpDto;
 //# sourceMappingURL=sign-up.dto.js.map

@@ -21,12 +21,42 @@ __decorate([
         type: String,
     }),
     __metadata("design:type", String)
+<<<<<<< Updated upstream
+], User.prototype, "email", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        required: true,
+        type: String,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "username", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        required: true,
+        type: Number,
+    }),
+    __metadata("design:type", Number)
+], User.prototype, "phone", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        required: false,
+        type: String,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "parent_id", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        required: false,
+        type: String,
+        default: (0, bcrypt_1.hashSync)('123456', configuration_1.configs.saltOrRound),
+=======
 ], User.prototype, "username", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
         required: false,
         type: String,
         default: (0, bcrypt_1.hashSync)('12345678', configuration_1.configs.saltOrRound),
+>>>>>>> Stashed changes
     }),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
@@ -34,10 +64,23 @@ __decorate([
     (0, mongoose_1.Prop)({
         required: false,
         type: Array,
+<<<<<<< Updated upstream
+    }),
+    __metadata("design:type", Array)
+], User.prototype, "role_id", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        required: false,
+        type: String,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "warehouse_id", void 0);
+=======
         default: ['ADMIN'],
     }),
     __metadata("design:type", Array)
 ], User.prototype, "role", void 0);
+>>>>>>> Stashed changes
 User = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true

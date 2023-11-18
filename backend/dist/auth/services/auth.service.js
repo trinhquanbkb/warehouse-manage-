@@ -10,7 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
+<<<<<<< Updated upstream
+=======
 const mongodb_1 = require("mongodb");
+>>>>>>> Stashed changes
 const common_1 = require("@nestjs/common");
 const lodash_1 = require("lodash");
 const users_service_1 = require("../../users/services/users.service");
@@ -27,7 +30,11 @@ let AuthService = class AuthService {
         return await this.userService.create(data);
     }
     async signIn(data) {
+<<<<<<< Updated upstream
+        const user = await this.userService.findOne({ email: data.email });
+=======
         const user = await this.userService.findOne({ username: data.username });
+>>>>>>> Stashed changes
         const credential = (0, lodash_1.omit)(user.toObject(), [
             'password',
             'createdAt',
@@ -37,6 +44,11 @@ let AuthService = class AuthService {
         const accessToken = await this.jwtService.signAsync(credential);
         return { accessToken, credential };
     }
+<<<<<<< Updated upstream
+    async checkIfDataSeeded() {
+        const adminUser = await this.userService.findOne({ email: 'admin@gmail.com' });
+        return !!adminUser;
+=======
     async activeAccount(body, token) {
         const verified = await this.jwtService.verifyAsync(token.split(' ')[1]);
         const user = await this.userService.findOne({
@@ -62,6 +74,7 @@ let AuthService = class AuthService {
         else {
             throw new common_1.BadRequestException('Old password is not invalid');
         }
+>>>>>>> Stashed changes
     }
 };
 AuthService = __decorate([

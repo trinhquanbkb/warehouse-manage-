@@ -3,8 +3,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { ProductsModule } from './products/products.module';
 import { ImagesModule } from './images/images.module';
+import { RolesModule } from './roles/roles.module';
+import { PermisstionsModule } from './permissions/permisstions.module';
+import { WarehousesModule } from './warehouse/warehouses.module';
+
 
 @Module({ 
   imports: [
@@ -16,8 +19,10 @@ import { ImagesModule } from './images/images.module';
     }),
     UsersModule,
     AuthModule,
-    ProductsModule,
     ImagesModule,
+    RolesModule,
+    PermisstionsModule,
+    WarehousesModule
   ],
 })
 export class AppModule { }

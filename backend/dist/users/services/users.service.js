@@ -12,15 +12,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const user_repository_1 = require("../repository/user.repository");
+<<<<<<< Updated upstream
+const configuration_1 = require("../../config/configuration");
+const bcrypt_1 = require("bcrypt");
+=======
+>>>>>>> Stashed changes
 let UsersService = class UsersService {
     constructor(usersRepository) {
         this.usersRepository = usersRepository;
     }
     async create(createUserDto) {
+<<<<<<< Updated upstream
+        createUserDto.password = (0, bcrypt_1.hashSync)(createUserDto.password, configuration_1.configs.saltOrRound);
+        return await this.usersRepository.create(createUserDto);
+    }
+    async findAll(pagination, filter) {
+        const { page, pageSize } = pagination;
+        const skip = (page - 1) * pageSize;
+        const data = await this.usersRepository.findAll(filter, skip, parseInt(pageSize, 10));
+        const total = await this.usersRepository.countAll(filter);
+        const paginations = {
+            "page": page,
+            "pageSize": pageSize,
+            "total": total,
+            "totalPage": Math.ceil(total / pageSize)
+        };
+        return { data, paginations, messenger: "succes" };
+=======
         return await this.usersRepository.create(createUserDto);
     }
     async findAll() {
         return await this.usersRepository.findAll();
+>>>>>>> Stashed changes
     }
     async findOne(filter) {
         return await this.usersRepository.findOne(filter);

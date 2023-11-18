@@ -16,18 +16,26 @@ exports.UsersController = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("../services/users.service");
+<<<<<<< Updated upstream
+=======
 const create_user_dto_1 = require("../dto/create-user.dto");
+>>>>>>> Stashed changes
 const update_user_dto_1 = require("../dto/update-user.dto");
 const jwt_guard_1 = require("../../auth/guards/jwt.guard");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
+<<<<<<< Updated upstream
+    async findAll(pagination, filter) {
+        return this.usersService.findAll(pagination, filter);
+=======
     create(createUserDto) {
         return this.usersService.create(createUserDto);
     }
     findAll() {
         return this.usersService.findAll();
+>>>>>>> Stashed changes
     }
     findOne(id) {
         return this.usersService.findOne({ _id: id });
@@ -40,6 +48,17 @@ let UsersController = class UsersController {
     }
 };
 __decorate([
+<<<<<<< Updated upstream
+    (0, common_1.Get)(),
+    (0, swagger_1.ApiQuery)({ name: 'page', type: Number, required: false, description: 'Page number' }),
+    (0, swagger_1.ApiQuery)({ name: 'pageSize', type: Number, required: false, description: 'Page size' }),
+    (0, swagger_1.ApiQuery)({ name: 'filter', type: 'object', required: false, description: 'Filter' }),
+    __param(0, (0, common_1.Query)()),
+    __param(1, (0, common_1.Query)('filter')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+=======
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -51,6 +70,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
+>>>>>>> Stashed changes
 ], UsersController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),

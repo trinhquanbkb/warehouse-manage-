@@ -25,13 +25,30 @@ let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
+<<<<<<< Updated upstream
+    async signUp(body, req) {
+        console.log(req.user);
+        body.parent_id = req.user.userId;
+=======
     async signUp(body) {
+>>>>>>> Stashed changes
         const data = await this.authService.signUp(body);
         return data;
     }
     async signIn(body) {
         return await this.authService.signIn(body);
     }
+<<<<<<< Updated upstream
+};
+__decorate([
+    (0, common_1.Post)('sign-up'),
+    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
+    (0, swagger_1.ApiBearerAuth)('authorization'),
+    __param(0, (0, common_1.Body)(signUpValidation_pipe_1.SignUpValidation)),
+    __param(1, (0, common_1.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [sign_up_dto_1.SignUpDto, Object]),
+=======
     async activeAccount() {
         return true;
     }
@@ -41,6 +58,7 @@ __decorate([
     __param(0, (0, common_1.Body)(signUpValidation_pipe_1.SignUpValidation)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [sign_up_dto_1.SignUpDto]),
+>>>>>>> Stashed changes
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "signUp", null);
 __decorate([
@@ -50,6 +68,8 @@ __decorate([
     __metadata("design:paramtypes", [sign_in_dto_1.SignInDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "signIn", null);
+<<<<<<< Updated upstream
+=======
 __decorate([
     (0, common_1.Get)('check'),
     (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
@@ -57,6 +77,7 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "activeAccount", null);
+>>>>>>> Stashed changes
 AuthController = __decorate([
     (0, swagger_1.ApiTags)('Authentication'),
     (0, common_1.Controller)('auth'),

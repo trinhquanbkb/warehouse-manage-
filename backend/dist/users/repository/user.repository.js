@@ -31,12 +31,23 @@ let UsersRepository = class UsersRepository {
     async update(id, updateDto) {
         return await this.userModel.findByIdAndUpdate(id, updateDto);
     }
+<<<<<<< Updated upstream
+    async findAll(filter, skip, limit) {
+        return this.userModel.find(filter).skip(skip).limit(limit).exec();
+=======
     async findAll(filter) {
         return this.userModel.find(filter);
+>>>>>>> Stashed changes
     }
     async delete(_id) {
         return await this.userModel.findByIdAndDelete(_id);
     }
+<<<<<<< Updated upstream
+    async countAll(filter) {
+        return this.userModel.countDocuments(filter).exec();
+    }
+=======
+>>>>>>> Stashed changes
 };
 UsersRepository = __decorate([
     (0, common_1.Injectable)(),

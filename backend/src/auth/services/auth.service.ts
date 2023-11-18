@@ -9,7 +9,6 @@ import { UsersService } from 'src/users/services/users.service';
 import { SignInDto } from '../dto/sign-in.dto';
 import { SignUpDto } from '../dto/sign-up.dto';
 import { JwtService } from '@nestjs/jwt';
-import { ActiveDto } from '../dto/active.dto';
 import { compareSync, hashSync } from 'bcrypt';
 import { configs } from 'src/config/configuration';
 
@@ -26,8 +25,7 @@ export class AuthService {
   }
 
   async signIn(data: SignInDto) {
-    const user = await this.userService.findOne({ username: data.username });
-
+    const user = await this.userService.findOne({ email: data.email });
     const credential = omit(user.toObject(), [
       'password',
       'createdAt',
@@ -40,35 +38,9 @@ export class AuthService {
     return { accessToken, credential };
   }
 
-  async activeAccount(body: ActiveDto, token: string) {
-    const verified = await this.jwtService.verifyAsync(token.split(' ')[1]);
-
-    const user = await this.userService.findOne({
-      _id: new ObjectId(verified._id),
-    });
-
-    if (!user) {
-      throw new UnauthorizedException('User can not found');
-    }
-
-    if (compareSync(body.old_password, user.password)) {
-      const updated = await this.userService.update(verified._id, {
-        password: hashSync(body.password, configs.saltOrRound),
-        isActive: true,
-      });
-
-      const credential = omit(updated.toObject(), [
-        'password',
-        'createdAt',
-        'updatedAt',
-        '__v',
-      ]);
-
-      const accessToken = await this.jwtService.signAsync(credential);
-
-      return { accessToken, credential };
-    } else {
-      throw new BadRequestException('Old password is not invalid');
-    }
+  async checkIfDataSeeded(): Promise<boolean> {
+    // Kiểm tra xem có người dùng admin trong cơ sở dữ liệu hay không
+    const adminUser = await this.userService.findOne({ email: 'admin@gmail.com' });
+    return !!adminUser; // Trả về true nếu có adminUser, ngược lại false
   }
 }

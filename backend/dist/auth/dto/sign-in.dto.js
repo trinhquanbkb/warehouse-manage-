@@ -14,11 +14,19 @@ const swagger_1 = require("@nestjs/swagger");
 class SignInDto {
 }
 __decorate([
+<<<<<<< Updated upstream
+    (0, swagger_1.ApiProperty)({ example: "admin@gmail.com", description: 'email đăng ký' }),
+    __metadata("design:type", String)
+], SignInDto.prototype, "email", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: '123456', description: 'mật khẩu' }),
+=======
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], SignInDto.prototype, "username", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
+>>>>>>> Stashed changes
     __metadata("design:type", String)
 ], SignInDto.prototype, "password", void 0);
 exports.SignInDto = SignInDto;

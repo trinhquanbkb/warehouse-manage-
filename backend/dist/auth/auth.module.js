@@ -15,7 +15,17 @@ const jwt_1 = require("@nestjs/jwt");
 const configuration_1 = require("../config/configuration");
 const users_module_1 = require("../users/users.module");
 const jwt_strategy_1 = require("./strategy/jwt.strategy");
+<<<<<<< Updated upstream
+const jwt_middleware_1 = require("../middlewares/jwt.middleware");
 let AuthModule = class AuthModule {
+    configure(consumer) {
+        consumer
+            .apply(jwt_middleware_1.JwtMiddleware)
+            .forRoutes('auth');
+    }
+=======
+let AuthModule = class AuthModule {
+>>>>>>> Stashed changes
 };
 AuthModule = __decorate([
     (0, common_1.Module)({

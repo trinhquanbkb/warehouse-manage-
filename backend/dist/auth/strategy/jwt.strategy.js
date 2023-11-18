@@ -23,7 +23,11 @@ let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(pas
         });
     }
     async validate(payload) {
+<<<<<<< Updated upstream
+        return { userId: payload._id, email: payload.email };
+=======
         return { userId: payload._id, username: payload.username };
+>>>>>>> Stashed changes
     }
 };
 JwtStrategy = __decorate([

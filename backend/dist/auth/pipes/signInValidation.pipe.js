@@ -22,9 +22,15 @@ let SignInValidation = class SignInValidation {
         return value;
     }
     async validateLogIn(value) {
+<<<<<<< Updated upstream
+        const email = value.email;
+        const password = value.password;
+        const user = await this.usersService.findOne({ email });
+=======
         const username = value.username;
         const password = value.password;
         const user = await this.usersService.findOne({ username });
+>>>>>>> Stashed changes
         if (!user) {
             return { id: null };
         }
